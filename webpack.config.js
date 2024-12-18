@@ -6,7 +6,7 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    bundle: path.resolve(__dirname, 'src/index.ts'),
+    bundle: path.resolve(__dirname, 'src/web/index.ts'),
   },
   resolve: {
     extensions: ['.ts', '.js'],

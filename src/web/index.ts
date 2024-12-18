@@ -1,6 +1,6 @@
 console.log('Hello, world!');
 
-import { formData } from './web/forms';
+import { formData } from './forms';
 
 const form = document.querySelector('form')!;
 
