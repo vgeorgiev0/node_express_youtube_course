@@ -1,5 +1,6 @@
 import app from "./app";
 import './mod/mg';
+import './mod/async';
 const port = process.env.PORT || 5000;
 
 // Start the server
