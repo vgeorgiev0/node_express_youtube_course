@@ -1,5 +1,3 @@
-let prefix = '\u001b[1;';
-let clear = '\u001b[0m';
 let colorCode = {
   red: '1',
   green: '2',
@@ -8,23 +6,40 @@ let colorCode = {
   purple: '5',
   cyan: '6',
 };
-let FgdStrCodVar = '';
-let BgdStrCodVar = '';
 
-export function log({
-  message,
-  color = 'red',
-  background = 'red',
-}: {
+interface LogOptions {
   message: unknown;
+}
+
+interface LogOptionsWithColor extends LogOptions {
   color?: keyof typeof colorCode;
+  type: 'text';
+}
+
+interface LogOptionsWithBackground extends LogOptions {
   background?: keyof typeof colorCode;
-}) {
-  if (color && colorCode[color]) {
-    FgdStrCodVar = prefix + '3' + colorCode[color] + 'm';
+  type: 'bg';
+}
+
+type LogOptionsWithColorAndBackground =
+  | LogOptionsWithColor
+  | LogOptionsWithBackground;
+
+export function log(params: LogOptionsWithColorAndBackground) {
+  let prefix = '\u001b[1;';
+  let clear = '\u001b[0m';
+  let text = '';
+  let backgroundColor = '';
+
+  const { message, type } = params;
+
+  if (type === 'bg' && params.background) {
+    backgroundColor = prefix + '4' + colorCode[params.background] + 'm';
   }
-  if (background && colorCode[background]) {
-    BgdStrCodVar = prefix + '4' + colorCode[background] + 'm';
+
+  if (type === 'text' && params.color) {
+    text = prefix + '3' + colorCode[params.color] + 'm';
   }
-  console.log(FgdStrCodVar, BgdStrCodVar, message, clear);
+
+  console.log(text, backgroundColor, message, clear);
 }
