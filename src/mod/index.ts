@@ -5,6 +5,7 @@ const os = require('./os');
 const path = require('./path');
 const file = require('./file');
 const http = require('./http');
+const event_loop = require('./event_loop');
 
 module.exports = {
   mg,
@@ -14,4 +15,5 @@ module.exports = {
   path,
   file,
   http,
+  event_loop,
 };
