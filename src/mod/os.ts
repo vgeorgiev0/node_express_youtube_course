@@ -16,4 +16,4 @@ const osInfo = {
   totalMem: os.totalmem(),
   freeMem: os.freemem(),
 };
-console.log(osInfo);
+// console.log(osInfo);
