@@ -1,0 +1,2 @@
+This is a simple text file one.
+It contains a few lines of text.

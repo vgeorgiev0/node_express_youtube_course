@@ -3,6 +3,7 @@ const alt = require('./alt');
 const names = require('./names');
 const os = require('./os');
 const path = require('./path');
+const file = require('./file');
 
 module.exports = {
   mg,
@@ -10,4 +11,5 @@ module.exports = {
   names,
   os,
   path,
+  file,
 };
